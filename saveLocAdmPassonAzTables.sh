@@ -7,8 +7,25 @@ length=8
 randomString=$(openssl rand -base64 $length)
 
 #########
-Here, use sysadminctl to create the user account and feed the password directly.
-Next, send the same password to Azure Tables
+# Here, use sysadminctl to create the user account and feed the password directly.
+# Next, send the same password to Azure Tables
+
+# Import the required modules
+source azure-functions-core-tools@3
+
+# Set the account name and password length
+accountName="admin"
+passwordLength=16
+
+# Generate a random password using OpenSSL
+password=$(openssl rand -base64 $passwordLength)
+randomString=$(password)
+# Create the local admin account with the random password
+dscl . -create /Users/$accountName
+dscl . -create /Users/$accountName UserShell /bin/bash
+dscl . -create /Users/$accountName RealName "Local Admin"
+dscl . -passwd /Users/$accountName $password
+dscl . -append /Groups/admin GroupMembership $accountName
 #########
 
 # Set your Azure storage account name and key
