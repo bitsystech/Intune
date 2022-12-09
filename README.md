@@ -1,2 +1,3 @@
-# savePasswordonAzure.sh
-This script creates a random password for a local account (or anything else) and saves it on Azure Tables.
+# Intune | Azure | macOS | Windows
+
+This folder has list of scripts that can be used while configuring Windows & Macs via Intune.
