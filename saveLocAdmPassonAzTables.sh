@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Created by BitSys Technologies AB
+# Tweet @BitSysAB
+# This is something every company needs to manage local admin passwords
+# Script will create the local admin account and send password to Azure Tables
 # Set the string length
 length=8
 
@@ -10,7 +14,7 @@ randomString=$(openssl rand -base64 $length)
 # Here, use sysadminctl to create the user account and feed the password directly.
 # Next, send the same password to Azure Tables
 
-# Import the required modules
+# Import the required modules, in case its needed
 source azure-functions-core-tools@3
 
 # Set the account name and password length
